@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
+  showMenu = false;
+  isLogged = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggleNavbar(){
+    this.showMenu = !this.showMenu;
   }
 
 }

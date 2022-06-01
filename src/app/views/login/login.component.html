@@ -1,42 +1,33 @@
-<div class="text-azulAymo text-center mt-8">
-  <h1 class="w-[310px] h-76 m-auto text-xl font-barlow font-bold leading-38 text-center">Bienvenido a Bonos Comercio</h1><br>
-  <h4 class="w-[260px] h-36 m-auto text-s font-barlow font-normal leading-19 text-center">Inicia sesión para empezar a ganar premios.</h4>
-</div>
-<br>
-<div class="w-[323px] h-[210px] m-auto">
-<form [formGroup]="loginForm" (ngSubmit)="login()">
-  <div class="col-6">
-    <label for="email" class="w-311 h-17 text-small font-barlow font-normal leading-19 text-azulAymo mb-2">Correo electrónico</label>
-    <input
-      type="text"
-      name="email"
-      required
-      formControlName="email"
-      autocomplete="email"
-      required
-      class="w-322 h-43 rounded-input border-2 border-azulAymo p-2"
-      required
-    />
-    <p class="text-red-500 text-xs italic pt-2" *ngIf="loginForm.get('email').touched && loginForm.get('email').hasError('required')">Este campo es obligatorio</p>
-  </div>
-  <br>
-  <div class="col-6">
-    <label for="contrasegna" class="w-311 h-17 text-small font-barlow font-normal leading-19 text-azulAymo mb-2">Escribe tu contraseña</label>
-    <input
-      type="password"
-      class="w-322 h-43 rounded-input border-2 border-azulAymo p-2"
-      required
-      formControlName="password"
-      name="password"
-      minlength="4"
-    />
-    <p class="text-red-500 text-xs italic pt-2" *ngIf="loginForm.get('password').touched && loginForm.get('password').hasError('required')">Este campo es obligatorio</p>
-  </div>
-  <br>
-  <button type="submit" class="w-[323px] h-[50px] rounded-button bg-verdeAymo text-white font-barlow font-bold text-medium leading-24 tracking-wider text-medium text-center not-italic">ENVIAR</button>
-</form>
-</div>
-<div class="text-center mt-20">
-  <p class="w-260 h-19 font-barlow font-normal text-s leading-19 text-azulAymo m-auto ">Si aún no estás registrado, crea tu cuenta.</p>
-  <button routerLink="/home" class="w-[165px] px-4 mt-3 h-[27px] border-2 border-azulAymo rounded-button font-barlow font-bold text-s leading-19 text-azulAymo">CREAR CUENTA</button>
-</div>
+<div class="mx-4 text-center font-barlow">
+  <h1 class="text-3xl text-secondary font-bold mb-8">Bienvenido a ElectroNet</h1>
+  <p class="text-secondary mb-4">Electrodomésticos del hogar al mejor precio.</p>
+
+
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="text-secondary text-left md:text-center lg:text-center">
+          <div class="pb-8 rounded-md">
+              <label class="">Correo electrónico</label>
+              <input name="email" type="email" autocomplete="email" required formControlName="email" class="rounded-md block w-full md:w-5/12 md:m-auto lg:w-3/12 lg:m-auto px-3 py-2 border border-secondary placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm">
+              <p class="text-red text-xs font-bold pt-2" *ngIf="loginForm.get('email')!.touched && loginForm.get('email')!.hasError('required')">Este campo es obligatorio.</p>
+              <p class="text-red text-xs font-bold pt-2" *ngIf="loginForm.get('email')!.touched && !loginForm.get('email')!.hasError('required') && loginForm.get('email')!.hasError('fbError')"></p>
+          </div>
+          <div class="pb-8 rounded-md">
+              <label>Contraseña</label>
+              <input id="password" name="password" type="password" autocomplete="current-password" required formControlName="password" [ngClass]="{'border-red-500': loginForm.get('password')!.touched && loginForm.get('password')!.invalid}" class="rounded-md block w-full md:w-5/12 md:m-auto lg:w-3/12 lg:m-auto px-3 py-2 border border-secondary placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm">
+              <p class="text-red text-xs font-bold pt-2" *ngIf="loginForm.get('password')!.touched && loginForm.get('password')!.hasError('required')">Este campo es obligatorio.</p>
+              <p class="text-red text-xs font-bold pt-2" *ngIf="loginForm.get('password')!.touched && !loginForm.get('password')!.hasError('required') && loginForm.get('password')!.hasError('fbError')"></p>
+          </div>
+
+      </div>
+      <div class="pb-10">
+          <button type="submit" class="bg-[#3a1fe3] w-full md:w-6/12 md:m-auto lg:w-4/12 lg:m-auto uppercase text-white py-2 rounded-2xl mx-auto text-xl tracking-wider font-semibold mb-12">
+        Entrar
+      </button>
+      </div>
+
+      <div class="text-secondary pb-4">
+          <a>Si aún no estás registrado, crea tu cuenta.</a>
+      </div>
+      <button routerLink="/registro" class="bg-white px-4 text-xs ring ring-secondary ring-inset uppercase text-secondary py-2 rounded-2xl mx-auto tracking-wider font-semibold mb-10">
+        Crear cuenta
+      </button>

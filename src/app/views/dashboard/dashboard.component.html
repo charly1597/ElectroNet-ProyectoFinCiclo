@@ -1,1 +1,60 @@
-<p>dashboard works!</p>
+<div *ngIf="isLogged" [ngClass]="{'bg-ligth': showMenu, 'bg-white': !showMenu}" class="z-50 fixed top-0 left-0 right-0 bg-white h-16 border-b-2">
+  <div class="flex flex-row justify-between h-full items-center mx-4">
+      <span>
+      <div *ngIf="isLogged">
+        <button [ngClass]="{'hidden': showMenu, 'block': !showMenu}" routerLink="/subir-ticket" class="bg-primary px-2 cursor-pointer w-full uppercase text-center text-sm text-white py-1 rounded-2xl mx-auto font-semibold inline-block">
+          SUBE TU TICKET
+        </button>
+      </div>
+    </span>
+
+      <button>
+      <svg xmlns="http://www.w3.org/2000/svg" [ngClass]="{'hidden': showMenu, 'visible': !showMenu}" class="h-6 w-6 mr-2 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-controls="mobile-menu" aria-expanded="false" (click)="toggleNavbar()">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+
+      <svg [ngClass]="{'hidden': !showMenu, 'block': showMenu}" class="h-6 w-6 mr-2 text-secondary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true" aria-controls="mobile-menu" aria-expanded="false" (click)="toggleNavbar()">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <div [ngClass]="{'hidden': !showMenu, 'block': showMenu}" class="hidden bg-ligth no-underline fixed w-full h-full" id="mobile-menu">
+      <div class="pt-2 pb-3 space-y-1 text-center">
+          <div>
+              <a routerLink="/home" (click)="toggleNavbar()" class="no-underline block pl-3 pr-4 py-2 text-2xl font-bold text-secondary mt-4" aria-current="page">
+        Inicio
+      </a>
+
+              <a routerLink="/movimientos" *ngIf="isLogged" (click)="toggleNavbar()" class="no-underline block pl-3 pr-4 py-2 text-2xl font-bold text-secondary mt-8">
+        Mis movimientos
+      </a>
+
+              <a routerLink="/comercios" (click)="toggleNavbar()" class="no-underline block pl-3 pr-4 py-2 text-2xl font-bold text-secondary mt-8">
+        Comercios
+      </a>
+
+              <a routerLink="/premios" (click)="toggleNavbar()" class="no-underline block pl-3 pr-4 py-2 text-2xl font-bold text-secondary mt-8">
+        Premios
+      </a>
+
+              <a routerLink="/reglas" (click)="toggleNavbar()" class="no-underline block pl-3 pr-4 py-2 text-2xl font-bold text-secondary mt-8">
+        Normas
+      </a>
+
+              <a routerLink="/subir-ticket" *ngIf="isLogged" (click)="toggleNavbar()" class="w-40 cursor-pointer inline-block bg-primary text-white text-center font-bold rounded-full py-1 mt-20">
+        SUBE TU TICKET
+      </a>
+
+              <a routerLink="/login" *ngIf="!isLogged" (click)="toggleNavbar()" class="w-40 cursor-pointer inline-block bg-primary text-white text-center font-bold rounded-full py-1 mt-20">
+        ACCEDER
+      </a>
+
+              <a *ngIf="isLogged" (click)="toggleNavbar()" class="underline border-transparent cursor-pointer block pl-3 pr-4 py-2 border-l-4 text-s font-normal text-secondary mt-8">
+        Salir de Bonos Comercio
+      </a>
+          </div>
+      </div>
+  </div>
+</div>
+

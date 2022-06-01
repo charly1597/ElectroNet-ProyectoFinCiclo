@@ -1,1 +1,33 @@
-<p>sign-up works!</p>
+<div class="mx-4 text-center font-barlow">
+  <h1 class="text-3xl text-secondary font-bold mb-8">Registro</h1>
+  <p class="text-secondary mb-4">Regístrate para empezar a comprar.</p>
+
+
+  <form [formGroup]="loginForm" (ngSubmit)="registro()">
+      <div class="text-secondary text-left md:text-center lg:text-center">
+          <div class="pb-8 rounded-md">
+              <label class="">Correo electrónico</label>
+              <input name="email" type="email" autocomplete="email" required formControlName="email" class="rounded-md block w-full md:w-5/12 md:m-auto lg:w-3/12 lg:m-auto px-3 py-2 border border-secondary placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm">
+              <p class="text-red text-xs font-bold pt-2" *ngIf="loginForm.get('email')!.touched && loginForm.get('email')!.hasError('required')">Este campo es obligatorio.</p>
+              <p class="text-red text-xs font-bold pt-2" *ngIf="loginForm.get('email')!.touched && !loginForm.get('email')!.hasError('required') && loginForm.get('email')!.hasError('fbError')"></p>
+          </div>
+          <div class="pb-8 rounded-md">
+              <label>Contraseña</label>
+              <input id="password" name="password" type="password" autocomplete="current-password" required formControlName="password" [ngClass]="{'border-red-500': loginForm.get('password')!.touched && loginForm.get('password')!.invalid}" class="rounded-md block w-full md:w-5/12 md:m-auto lg:w-3/12 lg:m-auto px-3 py-2 border border-secondary placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm">
+              <p class="text-red text-xs font-bold pt-2" *ngIf="loginForm.get('password')!.touched && loginForm.get('password')!.hasError('required')">Este campo es obligatorio.</p>
+              <p class="text-red text-xs font-bold pt-2" *ngIf="loginForm.get('password')!.touched && !loginForm.get('password')!.hasError('required') && loginForm.get('password')!.hasError('fbError')"></p>
+          </div>
+
+      </div>
+      <div class="pb-10">
+          <button type="submit" class="bg-[#3a1fe3] w-full md:w-6/12 md:m-auto lg:w-4/12 lg:m-auto uppercase text-white py-2 rounded-2xl mx-auto text-xl tracking-wider font-semibold mb-12">
+        Registrarse
+      </button>
+      </div>
+
+      <div class="text-secondary pb-4">
+          <a>Volver al Login.</a>
+      </div>
+      <button routerLink="/login" class="bg-white px-4 text-xs ring ring-secondary ring-inset uppercase text-secondary py-2 rounded-2xl mx-auto tracking-wider font-semibold mb-10">
+        Volver
+      </button>
