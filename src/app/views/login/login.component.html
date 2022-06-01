@@ -1,0 +1,42 @@
+<div class="text-azulAymo text-center mt-8">
+  <h1 class="w-[310px] h-76 m-auto text-xl font-barlow font-bold leading-38 text-center">Bienvenido a Bonos Comercio</h1><br>
+  <h4 class="w-[260px] h-36 m-auto text-s font-barlow font-normal leading-19 text-center">Inicia sesión para empezar a ganar premios.</h4>
+</div>
+<br>
+<div class="w-[323px] h-[210px] m-auto">
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+  <div class="col-6">
+    <label for="email" class="w-311 h-17 text-small font-barlow font-normal leading-19 text-azulAymo mb-2">Correo electrónico</label>
+    <input
+      type="text"
+      name="email"
+      required
+      formControlName="email"
+      autocomplete="email"
+      required
+      class="w-322 h-43 rounded-input border-2 border-azulAymo p-2"
+      required
+    />
+    <p class="text-red-500 text-xs italic pt-2" *ngIf="loginForm.get('email').touched && loginForm.get('email').hasError('required')">Este campo es obligatorio</p>
+  </div>
+  <br>
+  <div class="col-6">
+    <label for="contrasegna" class="w-311 h-17 text-small font-barlow font-normal leading-19 text-azulAymo mb-2">Escribe tu contraseña</label>
+    <input
+      type="password"
+      class="w-322 h-43 rounded-input border-2 border-azulAymo p-2"
+      required
+      formControlName="password"
+      name="password"
+      minlength="4"
+    />
+    <p class="text-red-500 text-xs italic pt-2" *ngIf="loginForm.get('password').touched && loginForm.get('password').hasError('required')">Este campo es obligatorio</p>
+  </div>
+  <br>
+  <button type="submit" class="w-[323px] h-[50px] rounded-button bg-verdeAymo text-white font-barlow font-bold text-medium leading-24 tracking-wider text-medium text-center not-italic">ENVIAR</button>
+</form>
+</div>
+<div class="text-center mt-20">
+  <p class="w-260 h-19 font-barlow font-normal text-s leading-19 text-azulAymo m-auto ">Si aún no estás registrado, crea tu cuenta.</p>
+  <button routerLink="/home" class="w-[165px] px-4 mt-3 h-[27px] border-2 border-azulAymo rounded-button font-barlow font-bold text-s leading-19 text-azulAymo">CREAR CUENTA</button>
+</div>
