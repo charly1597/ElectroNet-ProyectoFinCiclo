@@ -1,7 +1,7 @@
 <div *ngIf="isLogged" [ngClass]="{'bg-ligth': showMenu, 'bg-white': !showMenu}" class="z-50 fixed top-0 left-0 right-0 bg-white h-16 border-b-2">
   <div class="flex flex-row justify-between h-full items-center mx-4">
       <span>
-      <div *ngIf="isLogged">
+      <div *ngIf="user.rol=='user'">
         <button [ngClass]="{'hidden': showMenu, 'block': !showMenu}" routerLink="/subir-ticket" class="bg-primary px-2 cursor-pointer w-full uppercase text-center text-sm text-white py-1 rounded-2xl mx-auto font-semibold inline-block">
           SUBE TU TICKET
         </button>
@@ -50,7 +50,7 @@
         ACCEDER
       </a>
 
-              <a *ngIf="isLogged" (click)="toggleNavbar()" class="underline border-transparent cursor-pointer block pl-3 pr-4 py-2 border-l-4 text-s font-normal text-secondary mt-8">
+              <a *ngIf="isLogged" (click)="toggleNavbar();logout();" class="underline border-transparent cursor-pointer block pl-3 pr-4 py-2 border-l-4 text-s font-normal text-secondary mt-8">
         Salir de Bonos Comercio
       </a>
           </div>

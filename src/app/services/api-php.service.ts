@@ -18,4 +18,9 @@ export class ApiPhpService {
   signUp(credentials :any): Observable<any>{
     return this.clienteHttp.post(`${this.API}/registro.php`, credentials);
   }
+
+  logOut(){
+    localStorage.removeItem('user');
+    this.router.navigateByUrl('/login')
+  }
 }
