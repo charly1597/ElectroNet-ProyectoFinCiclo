@@ -21,7 +21,7 @@ export class ApiPhpService {
 
   logOut(){
     localStorage.removeItem('user');
-    this.router.navigateByUrl('/login')
+    this.router.navigateByUrl('/');
   }
 
   getProducts(): Observable<any>{

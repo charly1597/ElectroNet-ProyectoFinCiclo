@@ -2,20 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { ApiPhpService } from 'src/app/services/api-php.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-default',
+  templateUrl: './default.component.html',
+  styleUrls: ['./default.component.css']
 })
-export class HomeComponent implements OnInit {
-
-  user:any;
+export class DefaultComponent implements OnInit {
   products:any[]=[];
   products2:any[]=[];
 
   constructor(public apiSv : ApiPhpService) { }
 
   ngOnInit(): void {
-    this.user = JSON.parse(localStorage.getItem('user'));
     this.getProducts();
   }
 
@@ -31,6 +28,5 @@ export class HomeComponent implements OnInit {
   shuffleArray(array: any){
     return array.sort(()=> Math.random() - 0.5);
   }
-
 
 }

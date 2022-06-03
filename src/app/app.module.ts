@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductsComponent } from './views/products/products.component';
 import { MyShoppingComponent } from './views/my-shopping/my-shopping.component';
+import { DefaultComponent } from './views/default/default.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { MyShoppingComponent } from './views/my-shopping/my-shopping.component';
     ShoppingCartComponent,
     ProductsComponent,
     MyShoppingComponent,
+    DefaultComponent,
   ],
   imports: [
     BrowserModule,

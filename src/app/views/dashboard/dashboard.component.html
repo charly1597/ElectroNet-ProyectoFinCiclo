@@ -2,7 +2,7 @@
   <div class="flex flex-row justify-between h-full items-center mx-4">
       <span>
       <div *ngIf="user.rol=='admin' && route()=='/home'">
-        <button [ngClass]="{'hidden': showMenu, 'block': !showMenu}" routerLink="/admin" class="bg-primary px-2 cursor-pointer w-full uppercase text-center text-sm text-white py-1 rounded-2xl mx-auto font-semibold inline-block">
+        <button [ngClass]="{'hidden': showMenu, 'block': !showMenu}" routerLink="/admin" class="bg-[#6af6b2] px-2 cursor-pointer w-full uppercase text-center text-sm text-secondary py-1 rounded-2xl mx-auto font-semibold inline-block">
           IR A ADMINISTRACION
         </button>
       </div>
