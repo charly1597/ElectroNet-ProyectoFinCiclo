@@ -12,6 +12,8 @@ import { ProductComponent } from './views/product/product.component';
 import { ShoppingCartComponent } from './views/shopping-cart/shopping-cart.component';
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductsComponent } from './views/products/products.component';
+import { MyShoppingComponent } from './views/my-shopping/my-shopping.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DashboardComponent,
     AdminComponent,
     ProductComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    ProductsComponent,
+    MyShoppingComponent,
   ],
   imports: [
     BrowserModule,

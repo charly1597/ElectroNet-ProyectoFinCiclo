@@ -1,4 +1,26 @@
-<p>home works!</p>
-<div *ngIf="user.rol=='user'">
-  <button>Hola</button>
+<div class="mx-4 text-center font-barlow">
+  <h1 class="text-3xl text-secondary font-bold mb-8">Bienvenido {{user.nombre}}</h1>
+  <p class="text-secondary mb-4">Echa un vistazo a nuestro catálogo y empieza a comprar.</p>
+</div>
+<div class="bg-[#6af6b2] -mx-4 px-12 text-center font-barlow text-secondary font-semibold mb-8">
+  <img src="assets/images/elec1.jpg" class="m-auto w-44 h-44 pt-4 rounded-full"><br>
+  <p class="font-barlow font-bold text-base -mx-12 px-12">Disponemos de una amplia variedad de electrodomésticos, tanto para el interior del hogar como para el exterior</p><br>
+  <a routerLink="/comercios" class="w-60 mb-4 cursor-pointer inline-block border-2 border-secondary bg-white text-secondary text-center text-base font-barlow font-bold rounded-full font-semibold py-2">
+      Ver todo el catálogo
+  </a>
+</div>
+<h1 class="text-xl text-secondary text-center font-barlow font-bold mb-4">
+  Empieza a comprar ya
+</h1>
+<p class="text-secondary mb-8 text-center">Estos son algunos de nuestros productos.</p>
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 -mx-4 mb-4">
+  <h1 class="text-center">Hola</h1>
+  <h1 class="text-center">Hola</h1>
+  <h1 class="text-center">Hola</h1>
+  <h1 class="text-center">Hola</h1>
+  <h1 class="text-center">Hola</h1>
+  <h1 class="text-center">Hola</h1>
+</div>
+<div class="bg-secondary text-center py-6 -mx-4 px-12">
+  <p class="text-white font-inter text-xs">ElectroNet, sitio realizado por Carlos Talavera Morales. 2022.</p>
 </div>

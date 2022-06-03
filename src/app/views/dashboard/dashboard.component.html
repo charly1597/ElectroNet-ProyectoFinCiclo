@@ -1,9 +1,9 @@
 <div *ngIf="isLogged" [ngClass]="{'bg-ligth': showMenu, 'bg-white': !showMenu}" class="z-50 fixed top-0 left-0 right-0 bg-white h-16 border-b-2">
   <div class="flex flex-row justify-between h-full items-center mx-4">
       <span>
-      <div *ngIf="user.rol=='user'">
-        <button [ngClass]="{'hidden': showMenu, 'block': !showMenu}" routerLink="/subir-ticket" class="bg-primary px-2 cursor-pointer w-full uppercase text-center text-sm text-white py-1 rounded-2xl mx-auto font-semibold inline-block">
-          SUBE TU TICKET
+      <div *ngIf="user.rol=='admin'">
+        <button [ngClass]="{'hidden': showMenu, 'block': !showMenu}" routerLink="/admin" class="bg-primary px-2 cursor-pointer w-full uppercase text-center text-sm text-white py-1 rounded-2xl mx-auto font-semibold inline-block">
+          IR A ADMINISTRACION
         </button>
       </div>
     </span>
@@ -26,24 +26,16 @@
         Inicio
       </a>
 
-              <a routerLink="/movimientos" *ngIf="isLogged" (click)="toggleNavbar()" class="no-underline block pl-3 pr-4 py-2 text-2xl font-bold text-secondary mt-8">
-        Mis movimientos
+              <a routerLink="/catalogo" *ngIf="isLogged" (click)="toggleNavbar()" class="no-underline block pl-3 pr-4 py-2 text-2xl font-bold text-secondary mt-8">
+        Catálogo
       </a>
 
-              <a routerLink="/comercios" (click)="toggleNavbar()" class="no-underline block pl-3 pr-4 py-2 text-2xl font-bold text-secondary mt-8">
-        Comercios
+              <a routerLink="/compras" (click)="toggleNavbar()" class="no-underline block pl-3 pr-4 py-2 text-2xl font-bold text-secondary mt-8">
+        Mis compras
       </a>
 
-              <a routerLink="/premios" (click)="toggleNavbar()" class="no-underline block pl-3 pr-4 py-2 text-2xl font-bold text-secondary mt-8">
-        Premios
-      </a>
-
-              <a routerLink="/reglas" (click)="toggleNavbar()" class="no-underline block pl-3 pr-4 py-2 text-2xl font-bold text-secondary mt-8">
-        Normas
-      </a>
-
-              <a routerLink="/subir-ticket" *ngIf="isLogged" (click)="toggleNavbar()" class="w-40 cursor-pointer inline-block bg-primary text-white text-center font-bold rounded-full py-1 mt-20">
-        SUBE TU TICKET
+              <a routerLink="/carrito" *ngIf="isLogged" (click)="toggleNavbar()" class="w-40 cursor-pointer inline-block bg-primary text-white text-center font-bold rounded-full py-1 mt-20">
+        IR AL CARRITO
       </a>
 
               <a routerLink="/login" *ngIf="!isLogged" (click)="toggleNavbar()" class="w-40 cursor-pointer inline-block bg-primary text-white text-center font-bold rounded-full py-1 mt-20">
@@ -51,7 +43,7 @@
       </a>
 
               <a *ngIf="isLogged" (click)="toggleNavbar();logout();" class="underline border-transparent cursor-pointer block pl-3 pr-4 py-2 border-l-4 text-s font-normal text-secondary mt-8">
-        Salir de Bonos Comercio
+        Salir de ElectroNet
       </a>
           </div>
       </div>
