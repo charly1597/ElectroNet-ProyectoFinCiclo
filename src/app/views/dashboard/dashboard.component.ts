@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiPhpService } from 'src/app/services/api-php.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class DashboardComponent implements OnInit {
   isLogged = false;
   user:any;
 
-  constructor(private apiSv:ApiPhpService) { }
+  constructor(private apiSv:ApiPhpService, private router:Router) { }
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('user'));
@@ -28,6 +29,10 @@ export class DashboardComponent implements OnInit {
   logout(){
     this.isLogged = false;
     this.apiSv.logOut();
+  }
+
+  route(){
+    return this.router.url
   }
 
 }

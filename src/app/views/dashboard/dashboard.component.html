@@ -1,7 +1,7 @@
 <div *ngIf="isLogged" [ngClass]="{'bg-ligth': showMenu, 'bg-white': !showMenu}" class="z-50 fixed top-0 left-0 right-0 bg-white h-16 border-b-2">
   <div class="flex flex-row justify-between h-full items-center mx-4">
       <span>
-      <div *ngIf="user.rol=='admin'">
+      <div *ngIf="user.rol=='admin' && route()=='/home'">
         <button [ngClass]="{'hidden': showMenu, 'block': !showMenu}" routerLink="/admin" class="bg-primary px-2 cursor-pointer w-full uppercase text-center text-sm text-white py-1 rounded-2xl mx-auto font-semibold inline-block">
           IR A ADMINISTRACION
         </button>

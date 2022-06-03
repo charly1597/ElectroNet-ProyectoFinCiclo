@@ -23,4 +23,8 @@ export class ApiPhpService {
     localStorage.removeItem('user');
     this.router.navigateByUrl('/login')
   }
+
+  getProducts(): Observable<any>{
+    return this.clienteHttp.get(`${this.API}/obtenerTodosProductos.php`);
+  }
 }
