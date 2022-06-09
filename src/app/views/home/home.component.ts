@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiPhpService } from 'src/app/services/api-php.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class HomeComponent implements OnInit {
   products:any[]=[];
   products2:any[]=[];
 
-  constructor(public apiSv : ApiPhpService) { }
+  constructor(public apiSv : ApiPhpService, public router:Router) { }
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('user'));
@@ -30,6 +31,10 @@ export class HomeComponent implements OnInit {
 
   shuffleArray(array: any){
     return array.sort(()=> Math.random() - 0.5);
+  }
+
+  goToProduct(id: number){
+    this.router.navigate(['producto/', id]);
   }
 
 

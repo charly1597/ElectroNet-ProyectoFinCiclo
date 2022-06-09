@@ -5,6 +5,7 @@ import { DefaultComponent } from './views/default/default.component';
 import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './views/login/login.component';
 import { MyShoppingComponent } from './views/my-shopping/my-shopping.component';
+import { ProductComponent } from './views/product/product.component';
 import { ProductsComponent } from './views/products/products.component';
 import { ShoppingCartComponent } from './views/shopping-cart/shopping-cart.component';
 import { SignUpComponent } from './views/sign-up/sign-up.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'catalogo', component: ProductsComponent},
   {path: 'compras', component: MyShoppingComponent},
   {path: 'carrito', component: ShoppingCartComponent},
+  {path: 'producto/:id', component: ProductComponent}
 ];
 
 @NgModule({

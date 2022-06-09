@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
           window.location.reload();
         });
       }else{
-        this.errorTxt = 'Fallo al iniciar sesión';
+        this.errorTxt = 'Usuario o contraseña incorrectos';
       }
     })
   }

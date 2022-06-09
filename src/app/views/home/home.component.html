@@ -24,7 +24,7 @@
         {{product.nombre}}
     </p>
 
-    <a class="bg-[#11cd72] cursor-pointer w-full uppercase font-barlow text-center text-sm text-white py-1 rounded-2xl mx-auto font-semibold mb-10 inline-block">
+    <a (click)="goToProduct(product.id)" class="bg-[#11cd72] cursor-pointer w-full uppercase font-barlow text-center text-sm text-white py-1 rounded-2xl mx-auto font-semibold mb-10 inline-block">
         Ver detalles
     </a>
   </div>

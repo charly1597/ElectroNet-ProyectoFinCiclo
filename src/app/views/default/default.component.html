@@ -3,12 +3,8 @@
   <p class="text-secondary mb-8">Aquí puedes ver algunos de los objetos de nuestro catálogo.</p>
 </div>
 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 -mx-4 mb-4">
-  <div class="mx-4" *ngFor="let product of products2">
+  <div class="mx-4 mb-4" *ngFor="let product of products2">
     <img src="assets/images/{{product.imagen}}" class="m-auto w-44 h-44 mb-4">
-    <div class="flex flex-row justify-center text-secondary items-center font-bold mb-2">
-        <span class="font-barlow font-bold text-base">{{product.precio}}€</span>
-    </div>
-
     <p class="text-secondary font-barlow text-base text-center mb-2">
         {{product.nombre}}
     </p>
@@ -18,7 +14,16 @@
   <div class="text-secondary pt-8 pb-4 text-center">
     <a>Inicia sesión para poder acceder a todo el catálogo.</a>
   </div>
-  <button routerLink="/login" class=" bg-white px-4 text-xs ring ring-secondary ring-inset uppercase text-secondary py-2 rounded-2xl mx-auto tracking-wider font-semibold mb-10">
-  Iniciar Sesión
-  </button>
+  <div class="space-x-10">
+    <button routerLink="/login" class=" bg-white px-4 text-xs ring ring-secondary ring-inset uppercase text-secondary py-2 rounded-2xl mx-auto tracking-wider font-semibold mb-4">
+    Iniciar Sesión
+    </button>
+    <button routerLink="/registro" class="bg-white px-4 text-xs ring ring-secondary ring-inset uppercase text-secondary py-2 rounded-2xl mx-auto tracking-wider font-semibold mb-4">
+      Crear cuenta
+    </button>
+  </div>
+  <div class="text-secondary pb-4">
+    <a>Si aún no estás registrado, crea tu cuenta.</a>
+  </div>
+
 </div>

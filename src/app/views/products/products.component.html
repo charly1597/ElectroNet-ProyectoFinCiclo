@@ -1,1 +1,20 @@
-<p>products works!</p>
+<div class=" mx-4 text-center font-barlow">
+  <h1 class="text-3xl text-secondary font-bold mb-8">Electrodomésticos</h1>
+  <p class="text-secondary mb-8">Aquí puedes ver todos los electrodomésticos de nuestro catálogo.</p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 -mx-4 mb-4">
+  <div class="mx-4" *ngFor="let product of products">
+    <img src="assets/images/{{product.imagen}}" class="m-auto w-52 h-52 mb-4">
+    <div class="flex flex-row justify-center text-secondary items-center font-bold mb-2">
+        <span class="font-barlow font-bold text-base">{{product.precio}}€</span>
+    </div>
+
+    <p class="text-secondary font-barlow text-base text-center mb-2">
+        {{product.nombre}}
+    </p>
+
+    <a (click)="goToProduct(product.id)" class="bg-[#11cd72] cursor-pointer w-full uppercase font-barlow text-center text-sm text-white py-1 rounded-2xl mx-auto font-semibold mb-10 inline-block">
+        Ver detalles
+    </a>
+  </div>
+</div>

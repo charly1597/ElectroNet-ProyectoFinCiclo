@@ -27,4 +27,8 @@ export class ApiPhpService {
   getProducts(): Observable<any>{
     return this.clienteHttp.get(`${this.API}/obtenerTodosProductos.php`);
   }
+
+  getProduct(id:number): Observable<any>{
+    return this.clienteHttp.get(`${this.API}/obtenerProducto.php?id=${id}`)
+  }
 }
