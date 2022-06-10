@@ -15,7 +15,7 @@
     <p class="mt-4 font-bold">Precio: {{electrodomestico.precio}} €</p>
   </mat-card-content>
   <mat-card-actions class="">
-    <button mat-button>Añadir al carrito</button>
+    <button (click)="agregarProducto(electrodomestico)" mat-button>Añadir al carrito</button>
     <button routerLink="/home" mat-button>Volver a inicio</button>
   </mat-card-actions>
 </mat-card>

@@ -1,1 +1,26 @@
-<p>shopping-cart works!</p>
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 -mx-4 mb-4 p-4">
+  <div class="mx-4 shadow-xl" *ngFor="let product of carrito">
+    <img src="assets/images/{{product.imagen}}" class="m-auto w-52 h-52 mb-4">
+    <div class="flex flex-row justify-center text-secondary items-center font-bold mb-2">
+        <span class="font-barlow font-bold text-base">{{product.precio}}€</span>
+    </div>
+
+    <p class="text-secondary font-barlow text-base text-center mb-2">
+        {{product.nombre}}
+    </p>
+
+  </div>
+</div>
+<div class=" -mx-4 text-center font-barlow">
+  <div class="text-secondary pt-8 pb-4 text-center">
+    <h1>Precio total: {{precio}}€</h1>
+  </div>
+  <div class="space-x-10">
+    <button (click)="insertarVenta()" class=" bg-white px-4 text-xs ring ring-secondary ring-inset uppercase text-secondary py-2 rounded-2xl mx-auto tracking-wider font-semibold mb-4">
+    Confirmar Compra
+    </button>
+    <button routerLink="/catalogo" class="bg-white px-4 text-xs ring ring-secondary ring-inset uppercase text-secondary py-2 rounded-2xl mx-auto tracking-wider font-semibold mb-4">
+      Seguir Comprando
+    </button>
+  </div>
+</div>

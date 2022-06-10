@@ -21,6 +21,7 @@ export class ApiPhpService {
 
   logOut(){
     localStorage.removeItem('user');
+    localStorage.removeItem('carrito');
     this.router.navigateByUrl('/');
   }
 
@@ -30,5 +31,19 @@ export class ApiPhpService {
 
   getProduct(id:number): Observable<any>{
     return this.clienteHttp.get(`${this.API}/obtenerProducto.php?id=${id}`)
+  }
+
+  insertarVenta(venta:any){
+    return this.clienteHttp.post(`${this.API}/insertarVenta.php`, venta);
+  }
+
+  obtenerVentasUsuario(): Observable<any>{
+    let user = JSON.parse(localStorage.getItem('user'));
+    console.log(user.id)
+    let userDB:any = {
+      id:user.id,
+      nombre:user.nombre
+    }
+    return this.clienteHttp.get(`${this.API}/obtenerVentasUsuario.php?id=${user.id}`);
   }
 }

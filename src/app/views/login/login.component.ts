@@ -27,7 +27,9 @@ export class LoginComponent implements OnInit {
     this.apiSv.findByEmailAndPass(this.loginForm.value).subscribe(usuario => {
       if(usuario){
         console.log(usuario)
+        let carrito:any[]=[];
         localStorage.setItem('user',JSON.stringify(usuario));
+        localStorage.setItem('carrito',JSON.stringify(carrito));
         this.router.navigateByUrl('/home').then(() => {
           window.location.reload();
         });
