@@ -35,7 +35,7 @@ export class ProductComponent implements OnInit {
     carrito.push(producto);
     localStorage.setItem('carrito', JSON.stringify(carrito));
     console.log(carrito);
-    this.router.navigateByUrl('/home');
+    this.router.navigateByUrl('/carrito');
   }
 
 }

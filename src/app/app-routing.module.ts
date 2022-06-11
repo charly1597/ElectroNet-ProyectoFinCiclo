@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminCategoryComponent } from './views/admin/admin-category/admin-category.component';
+import { AdminElecComponent } from './views/admin/admin-elec/admin-elec.component';
+import { AdminUserComponent } from './views/admin/admin-user/admin-user.component';
+import { AdminVentasComponent } from './views/admin/admin-ventas/admin-ventas.component';
 import { AdminComponent } from './views/admin/admin.component';
 import { DefaultComponent } from './views/default/default.component';
 import { HomeComponent } from './views/home/home.component';
@@ -19,7 +23,11 @@ const routes: Routes = [
   {path: 'catalogo', component: ProductsComponent},
   {path: 'compras', component: MyShoppingComponent},
   {path: 'carrito', component: ShoppingCartComponent},
-  {path: 'producto/:id', component: ProductComponent}
+  {path: 'producto/:id', component: ProductComponent},
+  {path: 'admin/electrodomesticos', component: AdminElecComponent},
+  {path: 'admin/users', component: AdminUserComponent},
+  {path: 'admin/ventas', component: AdminVentasComponent},
+  {path: 'admin/category', component: AdminCategoryComponent},
 ];
 
 @NgModule({

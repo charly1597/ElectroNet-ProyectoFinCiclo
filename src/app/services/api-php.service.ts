@@ -37,6 +37,10 @@ export class ApiPhpService {
     return this.clienteHttp.post(`${this.API}/insertarVenta.php`, venta);
   }
 
+  obtenerTodosUsuarios(): Observable<any>{
+    return this.clienteHttp.get(`${this.API}/obtenerTodosUsuarios.php`);
+  }
+
   obtenerVentasUsuario(): Observable<any>{
     let user = JSON.parse(localStorage.getItem('user'));
     console.log(user.id)

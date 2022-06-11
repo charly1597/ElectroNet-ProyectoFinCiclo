@@ -1,26 +1,44 @@
-<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 -mx-4 mb-4 p-4">
-  <div class="mx-4 shadow-xl" *ngFor="let product of carrito">
-    <img src="assets/images/{{product.imagen}}" class="m-auto w-52 h-52 mb-4">
-    <div class="flex flex-row justify-center text-secondary items-center font-bold mb-2">
-        <span class="font-barlow font-bold text-base">{{product.precio}}€</span>
+<div *ngIf="carrito.length > 0 && carrito">
+  <div class="mx-4 text-center font-barlow">
+    <h1 class="text-3xl text-secondary font-bold mb-4">Confirma tu compra</h1>
+    <p class="text-secondary mb-4">Estos son los artículos de tu carrito.</p>
+  </div>
+  <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 -mx-4 mb-4 p-4">
+    <div class="mx-4 shadow-xl p-4" *ngFor="let product of carrito">
+      <img src="assets/images/{{product.imagen}}" class="m-auto w-52 h-52 mb-4">
+      <div class="flex flex-row justify-center text-secondary items-center font-bold mb-2">
+          <span class="font-barlow font-bold text-base">{{product.precio}}€</span>
+      </div>
+
+      <p class="text-secondary font-barlow text-base text-center mb-2">
+          {{product.nombre}}
+      </p>
+      <a (click)="eliminarDelCarrito(product)" class="text-center bg-red cursor-pointer w-full uppercase font-barlow text-center text-sm text-white py-1 rounded-2xl mx-auto font-semibold mb-10 inline-block">
+        Eliminar del carrito
+    </a>
     </div>
-
-    <p class="text-secondary font-barlow text-base text-center mb-2">
-        {{product.nombre}}
-    </p>
-
+  </div>
+  <p>Tienes un total de {{articulos}} artículos</p>
+  <div class=" -mx-4 text-center font-barlow">
+    <div class="text-secondary pt-8 pb-4 text-center">
+      <h1>Precio total: {{precio}}€</h1>
+    </div>
+    <div class="space-x-10">
+      <button (click)="insertarVenta()" class=" bg-[#11cd72] px-4 text-xs ring ring-secondary ring-inset uppercase text-white py-2 rounded-2xl mx-auto tracking-wider font-semibold mb-4">
+      Confirmar Compra
+      </button>
+      <button routerLink="/catalogo" class="bg-red px-4 text-xs ring ring-secondary ring-inset uppercase text-white py-2 rounded-2xl mx-auto tracking-wider font-semibold mb-4">
+        Seguir Comprando
+      </button>
+    </div>
   </div>
 </div>
-<div class=" -mx-4 text-center font-barlow">
-  <div class="text-secondary pt-8 pb-4 text-center">
-    <h1>Precio total: {{precio}}€</h1>
-  </div>
-  <div class="space-x-10">
-    <button (click)="insertarVenta()" class=" bg-white px-4 text-xs ring ring-secondary ring-inset uppercase text-secondary py-2 rounded-2xl mx-auto tracking-wider font-semibold mb-4">
-    Confirmar Compra
-    </button>
+<div *ngIf="carrito.length == 0">
+  <div class="mx-4 text-center font-barlow">
+    <h1 class="text-3xl text-secondary font-bold mb-8">No hay artículos en tu carrito</h1>
     <button routerLink="/catalogo" class="bg-white px-4 text-xs ring ring-secondary ring-inset uppercase text-secondary py-2 rounded-2xl mx-auto tracking-wider font-semibold mb-4">
-      Seguir Comprando
+      Empezar a comprar
     </button>
   </div>
+
 </div>

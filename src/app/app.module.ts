@@ -18,6 +18,11 @@ import { DefaultComponent } from './views/default/default.component';
 import {MatCardModule} from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
+import { AdminElecComponent } from './views/admin/admin-elec/admin-elec.component';
+import { AdminUserComponent } from './views/admin/admin-user/admin-user.component';
+import { AdminVentasComponent } from './views/admin/admin-ventas/admin-ventas.component';
+import { AdminCategoryComponent } from './views/admin/admin-category/admin-category.component';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -33,6 +38,10 @@ import {MatButtonModule} from '@angular/material/button';
     ProductsComponent,
     MyShoppingComponent,
     DefaultComponent,
+    AdminElecComponent,
+    AdminUserComponent,
+    AdminVentasComponent,
+    AdminCategoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +51,8 @@ import {MatButtonModule} from '@angular/material/button';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
