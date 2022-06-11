@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiPhpService {
-  API = 'https://carlostalavera.000webhostapp.com/ApiElectronet/';
+  API = 'https://carlostalavera.000webhostapp.com/ApiElectronet';
 
   constructor(private clienteHttp : HttpClient, private router : Router) { }
 
