@@ -17,7 +17,7 @@ export class ApiPhpService {
   }
 
   signUp(credentials :any): Observable<any>{
-    return this.clienteHttp.post(`${this.API}/registro.php?email=${credentials.email}&password=${credentials.password}&nombre=${credentials.name}`);
+    return this.clienteHttp.post(`${this.API}/registro.php?email=${credentials.email}&password=${credentials.password}&nombre=${credentials.name}`, credentials);
   }
 
   logOut(){
