@@ -12,7 +12,7 @@ export class ApiPhpService {
   constructor(private clienteHttp : HttpClient, private router : Router) { }
 
   findByEmailAndPass(credentials : any){
-    return this.clienteHttp.post(`${this.API}/buscarPorCorreoyPass.php`, credentials);
+    return this.clienteHttp.get(`${this.API}/buscarPorCorreoyPass.php`, credentials);
   }
 
   signUp(credentials :any): Observable<any>{
