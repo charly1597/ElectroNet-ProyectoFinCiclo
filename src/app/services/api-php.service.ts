@@ -44,11 +44,6 @@ export class ApiPhpService {
 
   obtenerVentasUsuario(): Observable<any>{
     let user = JSON.parse(localStorage.getItem('user'));
-    console.log(user.id)
-    let userDB:any = {
-      id:user.id,
-      nombre:user.nombre
-    }
     return this.clienteHttp.get(`${this.API}/obtenerVentasUsuario.php?id=${user.id}`);
   }
 
@@ -58,5 +53,13 @@ export class ApiPhpService {
 
   obtenerCategorias(): Observable<any>{
     return this.clienteHttp.get(`${this.API}/obtenerCategorias.php`);
+  }
+
+  insertarComentario(comentario: any): Observable<any>{
+    return this.clienteHttp.get(`${this.API}/insertarComentario.php?id_usu=${comentario.id_usuario}&id_elec=${comentario.id_elec}&comentario=${comentario.comentario}`);
+  }
+
+  obtenerComentariosProducto(id:any): Observable<any>{
+    return this.clienteHttp.get(`${this.API}/obtenerComentariosProducto.php?id=${id}`);
   }
 }

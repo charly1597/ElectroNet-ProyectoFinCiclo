@@ -22,5 +22,39 @@
   </mat-card-actions>
 </mat-card>
 </div>
+<form [formGroup]="loginForm" (ngSubmit)="post()">
+  <div class="text-secondary mx-auto text-center md:text-center lg:text-center">
+    <div class="pb-2 rounded-md mx-auto">
+      <mat-form-field class="text-center w-8/12 mx-auto" appearance="fill">
+        <mat-label>Comentario</mat-label>
+        <textarea matInput class="text-center w-8/12 mx-auto"  formControlName="descripcion"></textarea>
+      </mat-form-field>
+    </div>
+
+  </div>
+    <div class="pb-4 text-center">
+        <button type="submit" class="bg-[#3a1fe3] w-6/12 md:w-6/12 md:m-auto lg:w-4/12 lg:m-auto text-white py-2 px-2 rounded-2xl mx-auto tracking-wider font-semibold mb-4">
+      Insertar Comentario
+    </button>
+    </div>
+  </form>
+  <div *ngIf="comentarios.length > 0">
+    <mat-card *ngFor="let comentario of comentarios" class=" w-8/12 mx-auto mb-4">
+      <mat-card-title>{{comentario.nombre}}</mat-card-title>
+      <mat-card-subtitle>{{comentario.email}}</mat-card-subtitle>
+      <mat-card-content>
+        <p>{{comentario.comentario}}</p>
+        <p></p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div *ngIf="comentarios.length == 0">
+    <mat-card class="text-center w-8/12 mx-auto mb-4">
+      <mat-card-title>Este producto no tiene comentarios</mat-card-title>
+      <mat-card-content>
+        <p>Sé el primero en dejar un comentario</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
 

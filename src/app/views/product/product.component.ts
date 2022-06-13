@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { ApiPhpService } from 'src/app/services/api-php.service';
@@ -10,17 +11,26 @@ import { ApiPhpService } from 'src/app/services/api-php.service';
 })
 export class ProductComponent implements OnInit {
   @Input() electrodomestico: any;
+  loginForm: FormGroup;
+  user:any;
+  comentarios:any[] = [];
 
-  constructor(private activatedRoute: ActivatedRoute, private apiSv : ApiPhpService, private router:Router) { }
+  constructor(private activatedRoute: ActivatedRoute, private apiSv : ApiPhpService, private router:Router) {
+    this.loginForm = new FormGroup({
+      descripcion: new FormControl('')
+    });
+   }
 
   ngOnInit(): void {
+    this.user = JSON.parse(localStorage.getItem('user'));
 
     this.activatedRoute.params.pipe(switchMap (({id}) => this.apiSv.getProduct(id))
       ).subscribe(async product => {
         console.log(product)
         this.electrodomestico = product;
-      });(
-      console.log(this.activatedRoute.snapshot.paramMap.get('id')));
+      });
+      this.obtenerComentarios();
+      //this.limpiarComentarios();
       window.scroll(0,0);
   }
 
@@ -39,6 +49,41 @@ export class ProductComponent implements OnInit {
     this.router.navigateByUrl('/carrito').then(() => {
       window.location.reload();
     });
+  }
+
+  obtenerComentarios(){
+    this.apiSv.obtenerComentariosProducto(this.activatedRoute.snapshot.paramMap.get('id')).subscribe(comentarios => {
+      this.comentarios = comentarios;
+      console.log(comentarios)
+    })
+  }
+
+  limpiarComentarios(){
+    const comentarios = this.comentarios;
+    const limpio = [];
+    for(var i = 0; i < comentarios.length; i++) {
+
+      const elemento = comentarios[i];
+
+      if (!limpio.includes(comentarios[i].email)) {
+        limpio.push(elemento);
+      }
+    }
+    this.comentarios = limpio;
+  }
+
+  post(){
+    console.log(this.loginForm.value.descripcion);
+    const comentario = {
+      id_usuario: this.user.id,
+      id_elec:this.activatedRoute.snapshot.paramMap.get('id'),
+      comentario:this.loginForm.value.descripcion
+    }
+    this.apiSv.insertarComentario(comentario).subscribe(()=> {
+      this.loginForm.reset();
+      this.obtenerComentarios();
+    });
+
   }
 
 }
