@@ -7,12 +7,14 @@ import { ApiPhpService } from 'src/app/services/api-php.service';
   styleUrls: ['./my-shopping.component.css']
 })
 export class MyShoppingComponent implements OnInit {
-  public ventas:any [] = []
+  public ventas:any [] = [];
+  pages: number = 1;
 
   constructor(private apiSv:ApiPhpService) { }
 
   ngOnInit(): void {
     this.obtenerVentas();
+    window.scroll(0,0);
   }
 
   obtenerVentas(){

@@ -21,6 +21,7 @@ export class ProductComponent implements OnInit {
         this.electrodomestico = product;
       });(
       console.log(this.activatedRoute.snapshot.paramMap.get('id')));
+      window.scroll(0,0);
   }
 
   agregarProducto(elec:any){
@@ -35,7 +36,9 @@ export class ProductComponent implements OnInit {
     carrito.push(producto);
     localStorage.setItem('carrito', JSON.stringify(carrito));
     console.log(carrito);
-    this.router.navigateByUrl('/carrito');
+    this.router.navigateByUrl('/carrito').then(() => {
+      window.location.reload();
+    });
   }
 
 }

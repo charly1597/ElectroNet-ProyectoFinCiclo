@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiPhpService } from 'src/app/services/api-php.service';
 
 @Component({
@@ -10,10 +11,11 @@ export class AdminElecComponent implements OnInit {
   products:any[]=[];
   displayedColumns: string[] = ['id', 'nombre', 'precio', 'categoria', 'borrar', 'editar'];
 
-  constructor(private apiSv : ApiPhpService) { }
+  constructor(private apiSv : ApiPhpService, private router:Router) { }
 
   ngOnInit(): void {
     this.getProducts();
+    window.scroll(0,0);
   }
 
   getProducts(){
@@ -21,6 +23,10 @@ export class AdminElecComponent implements OnInit {
       console.log(productos);
       this.products = productos;
     })
+  }
+
+  goToProduct(id: number){
+    this.router.navigate(['admin/electrodomesticos/form/', id]);
   }
 
 }

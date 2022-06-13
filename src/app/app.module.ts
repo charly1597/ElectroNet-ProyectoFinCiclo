@@ -23,6 +23,13 @@ import { AdminUserComponent } from './views/admin/admin-user/admin-user.componen
 import { AdminVentasComponent } from './views/admin/admin-ventas/admin-ventas.component';
 import { AdminCategoryComponent } from './views/admin/admin-category/admin-category.component';
 import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FormElecComponent } from './views/admin/admin-elec/form-elec/form-elec.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatIconModule} from '@angular/material/icon';
+
 
 
 @NgModule({
@@ -42,6 +49,7 @@ import {MatTableModule} from '@angular/material/table';
     AdminUserComponent,
     AdminVentasComponent,
     AdminCategoryComponent,
+    FormElecComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +60,12 @@ import {MatTableModule} from '@angular/material/table';
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule,
+    NgxPaginationModule,
+    MatInputModule,
+    MatBadgeModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

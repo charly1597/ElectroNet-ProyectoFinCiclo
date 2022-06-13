@@ -10,14 +10,12 @@
   <img class="rounded-md mt-4 w-6/12 mx-auto" src="assets/images/{{electrodomestico.imagen}}" alt="Photo of a Shiba Inu">
   <mat-card-content class="mt-8">
     <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
+      {{electrodomestico.descripcion}}
     </p>
     <p class="mt-4 text-xl font-bold">Precio: {{electrodomestico.precio}} €</p>
   </mat-card-content>
   <mat-card-actions class="text-center pb-8">
-    <div class="mb-4 bg-[#6af6b2] -mx-2 py-4 -mb-4 rounded">
+    <div class="bg-[#6af6b2] -mx-2 py-4 -mb-6 rounded">
       <button (click)="agregarProducto(electrodomestico)" mat-raised-button color="primary">Añadir al carrito</button>
       <button routerLink="/home" mat-raised-button color="warn">Volver a inicio</button>
     </div>

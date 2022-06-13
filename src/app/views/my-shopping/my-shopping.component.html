@@ -3,7 +3,7 @@
   <p class="text-secondary mb-4">Echa un vistazo a tus últimas compras</p>
 </div>
 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 -mx-4 mb-4">
-  <div class="mx-4" *ngFor="let product of ventas">
+  <div class="mx-4" *ngFor="let product of ventas | paginate: { itemsPerPage: 8, currentPage: pages }">
     <img src="assets/images/{{product.imagen}}" class="m-auto w-52 h-52 mb-4">
     <div class="flex flex-row justify-center text-secondary items-center font-bold mb-2">
         <span class="font-barlow font-bold text-base">{{product.precio}}€</span>
@@ -17,3 +17,4 @@
   </p>
   </div>
 </div>
+<pagination-controls class="text-center" (pageChange)="pages = $event"></pagination-controls>

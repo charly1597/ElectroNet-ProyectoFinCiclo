@@ -12,6 +12,7 @@ export class DashboardComponent implements OnInit {
   showMenu = false;
   isLogged = false;
   user:any;
+  public carrito:any[]=[];
 
   constructor(private apiSv:ApiPhpService, private router:Router) { }
 
@@ -20,6 +21,7 @@ export class DashboardComponent implements OnInit {
     if(this.user){
       this.isLogged=true;
     }
+    return this.carrito = JSON.parse(localStorage.getItem('carrito'));
   }
 
   toggleNavbar(){
@@ -33,6 +35,10 @@ export class DashboardComponent implements OnInit {
 
   route(){
     return this.router.url
+  }
+
+  obtenerCarrito(){
+    return this.carrito = JSON.parse(localStorage.getItem('carrito'));
   }
 
 }

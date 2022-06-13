@@ -14,6 +14,7 @@ export class AdminUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.obtenerUsers();
+    window.scroll(0,0);
   }
 
   obtenerUsers(){

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiPhpService {
-  API = 'https://carlostalavera.000webhostapp.com/ApiElectronet';
+  API = 'http://localhost/ApiGestionUsuarios';
 
   constructor(private clienteHttp : HttpClient, private router : Router) { }
 
@@ -35,7 +35,7 @@ export class ApiPhpService {
   }
 
   insertarVenta(venta:any){
-    return this.clienteHttp.post(`${this.API}/insertarVenta.php`, venta);
+    return this.clienteHttp.get(`${this.API}/insertarVenta.php?id_usu=${venta.id_usuario}&id_elec=${venta.id_elec}&precio=${venta.precio}`);
   }
 
   obtenerTodosUsuarios(): Observable<any>{
@@ -50,5 +50,13 @@ export class ApiPhpService {
       nombre:user.nombre
     }
     return this.clienteHttp.get(`${this.API}/obtenerVentasUsuario.php?id=${user.id}`);
+  }
+
+  obtenerTodasVentas(): Observable<any>{
+    return this.clienteHttp.get(`${this.API}/obtenerTodasVentas.php`);
+  }
+
+  obtenerCategorias(): Observable<any>{
+    return this.clienteHttp.get(`${this.API}/obtenerCategorias.php`);
   }
 }

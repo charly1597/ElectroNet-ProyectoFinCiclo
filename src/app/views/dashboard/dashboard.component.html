@@ -1,52 +1,42 @@
 <div *ngIf="isLogged" [ngClass]="{'bg-ligth': showMenu, 'bg-white': !showMenu}" class="z-50 fixed top-0 left-0 right-0 bg-white h-16 border-b-2">
-  <div class="flex flex-row justify-between h-full items-center mx-4">
-      <span>
-      <div *ngIf="user.rol=='admin' && route()=='/home'">
-        <button [ngClass]="{'hidden': showMenu, 'block': !showMenu}" routerLink="/admin" class="bg-[#6af6b2] px-2 cursor-pointer w-full uppercase text-center text-sm text-secondary py-1 rounded-2xl mx-auto font-semibold inline-block">
-          IR A ADMINISTRACION
-        </button>
-      </div>
-    </span>
-
-      <button>
-      <svg xmlns="http://www.w3.org/2000/svg" [ngClass]="{'hidden': showMenu, 'visible': !showMenu}" class="h-6 w-6 mr-2 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-controls="mobile-menu" aria-expanded="false" (click)="toggleNavbar()">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-
-      <svg [ngClass]="{'hidden': !showMenu, 'block': showMenu}" class="h-6 w-6 mr-2 text-secondary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true" aria-controls="mobile-menu" aria-expanded="false" (click)="toggleNavbar()">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-      </svg>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <div *ngIf="user.rol=='admin' && route()=='/home'">
+      <button routerLink="/admin" class="bg-[#6af6b2] px-2 cursor-pointer w-full uppercase text-center text-sm text-[#000563] py-1 rounded-2xl mx-auto font-semibold inline-block">
+        IR A ADMINISTRACION
+      </button>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
-  </div>
-
-  <div [ngClass]="{'hidden': !showMenu, 'block': showMenu}" class="hidden bg-ligth no-underline fixed w-full h-full" id="mobile-menu">
-      <div class="pt-2 pb-3 space-y-1 text-center">
-          <div>
-              <a routerLink="/home" (click)="toggleNavbar()" class="no-underline block pl-3 pr-4 py-2 text-2xl font-bold text-secondary mt-4" aria-current="page">
-        Inicio
-      </a>
-
-              <a routerLink="/catalogo" *ngIf="isLogged" (click)="toggleNavbar()" class="no-underline block pl-3 pr-4 py-2 text-2xl font-bold text-secondary mt-8">
-        Catálogo
-      </a>
-
-              <a routerLink="/compras" (click)="toggleNavbar()" class="no-underline block pl-3 pr-4 py-2 text-2xl font-bold text-secondary mt-8">
-        Mis compras
-      </a>
-
-              <a routerLink="/carrito" *ngIf="isLogged" (click)="toggleNavbar()" class="w-40 cursor-pointer inline-block bg-primary text-white text-center font-bold rounded-full py-1 mt-20">
-        IR AL CARRITO
-      </a>
-
-              <a routerLink="/login" *ngIf="!isLogged" (click)="toggleNavbar()" class="w-40 cursor-pointer inline-block bg-primary text-white text-center font-bold rounded-full py-1 mt-20">
-        ACCEDER
-      </a>
-
-              <a *ngIf="isLogged" (click)="toggleNavbar();logout();" class="underline border-transparent cursor-pointer block pl-3 pr-4 py-2 border-l-4 text-s font-normal text-secondary mt-8">
-        Salir de ElectroNet
-      </a>
-          </div>
+    <div class="collapse navbar-collapse text-center" id="navbarNav">
+      <ul class="navbar-nav border-none">
+        <li class="border-none">
+          <a routerLink="/home" (click)="toggleNavbar()" class=" no-underline block pl-3 pr-4 py-2 font-bold text-[#000563]">
+            Inicio
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/catalogo" *ngIf="isLogged" (click)="toggleNavbar()" class="no-underline block pl-3 pr-4 py-2 font-bold text-[#000563]">
+            Catálogo
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/compras" (click)="toggleNavbar()" class="no-underline block pl-3 pr-4 py-2  font-bold text-[#000563]">
+            Mis compras
+          </a>
+        </li>
+      </ul>
+      <div class="justify-end justify-content-end  navbar-collapse">
+          <a routerLink="/carrito" *ngIf="isLogged" onchange="obtenerCarrito()" (click)="toggleNavbar()" class="bg-[#6af6b2] no-underline rounded-full border-transparent cursor-pointer block pl-3 pr-4 py-2 border-l-4 text-s font-normal text-[#000563]">
+            <mat-icon matBadge="{{carrito.length}}" matBadgeColor="warn">shopping_cart</mat-icon>
+          </a>
+          <a *ngIf="isLogged" (click)="toggleNavbar();logout();" class="underline border-transparent cursor-pointer block pl-3 pr-4 py-2 border-l-4 text-s font-normal text-[#000563]">
+            <mat-icon>exit_to_app</mat-icon>
+          </a>
       </div>
+    </div>
   </div>
+</nav>
 </div>
 

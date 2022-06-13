@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiPhpService } from 'src/app/services/api-php.service';
 
@@ -8,6 +8,7 @@ import { ApiPhpService } from 'src/app/services/api-php.service';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
+  pages: number = 1;
   products:any[]=[];
   products2:any[]=[];
 
@@ -15,6 +16,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProducts();
+    window.scroll(0,0);
   }
 
   getProducts(){

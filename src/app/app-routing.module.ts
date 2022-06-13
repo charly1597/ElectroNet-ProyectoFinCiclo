@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminGuard } from './guards/admin.guard';
+import { AuthGuard } from './guards/auth.guard';
+import { LoggedGuard } from './guards/logged.guard';
 import { AdminCategoryComponent } from './views/admin/admin-category/admin-category.component';
 import { AdminElecComponent } from './views/admin/admin-elec/admin-elec.component';
+import { FormElecComponent } from './views/admin/admin-elec/form-elec/form-elec.component';
 import { AdminUserComponent } from './views/admin/admin-user/admin-user.component';
 import { AdminVentasComponent } from './views/admin/admin-ventas/admin-ventas.component';
 import { AdminComponent } from './views/admin/admin.component';
@@ -15,19 +19,21 @@ import { ShoppingCartComponent } from './views/shopping-cart/shopping-cart.compo
 import { SignUpComponent } from './views/sign-up/sign-up.component';
 
 const routes: Routes = [
-  {path: '', component: DefaultComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'registro', component: SignUpComponent},
-  {path: 'home', component: HomeComponent},
-  {path: 'admin', component: AdminComponent},
-  {path: 'catalogo', component: ProductsComponent},
-  {path: 'compras', component: MyShoppingComponent},
-  {path: 'carrito', component: ShoppingCartComponent},
-  {path: 'producto/:id', component: ProductComponent},
-  {path: 'admin/electrodomesticos', component: AdminElecComponent},
-  {path: 'admin/users', component: AdminUserComponent},
-  {path: 'admin/ventas', component: AdminVentasComponent},
-  {path: 'admin/category', component: AdminCategoryComponent},
+  {path: '', component: DefaultComponent, canActivate: [LoggedGuard]},
+  {path: 'login', component: LoginComponent, canActivate: [LoggedGuard]},
+  {path: 'registro', component: SignUpComponent, canActivate: [LoggedGuard]},
+  {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+  {path: 'admin', component: AdminComponent, canActivate: [AuthGuard,AdminGuard]},
+  {path: 'catalogo', component: ProductsComponent, canActivate: [AuthGuard]},
+  {path: 'compras', component: MyShoppingComponent, canActivate: [AuthGuard]},
+  {path: 'carrito', component: ShoppingCartComponent, canActivate: [AuthGuard]},
+  {path: 'producto/:id', component: ProductComponent, canActivate: [AuthGuard]},
+  {path: 'admin/electrodomesticos', component: AdminElecComponent, canActivate: [AuthGuard,AdminGuard]},
+  {path: 'admin/users', component: AdminUserComponent, canActivate: [AuthGuard,AdminGuard]},
+  {path: 'admin/ventas', component: AdminVentasComponent, canActivate: [AuthGuard,AdminGuard]},
+  {path: 'admin/category', component: AdminCategoryComponent, canActivate: [AuthGuard,AdminGuard]},
+  {path: 'admin/electrodomesticos/form/:id', component: FormElecComponent, canActivate: [AuthGuard,AdminGuard]},
+  {path: 'admin/electrodomesticos/form', component: FormElecComponent, canActivate: [AuthGuard,AdminGuard]},
 ];
 
 @NgModule({

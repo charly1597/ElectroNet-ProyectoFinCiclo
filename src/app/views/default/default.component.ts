@@ -14,6 +14,7 @@ export class DefaultComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProducts();
+    window.scroll(0,0);
   }
 
   getProducts(){
@@ -26,7 +27,7 @@ export class DefaultComponent implements OnInit {
   }
 
   shuffleArray(array: any){
-    return array.sort(()=> Math.random() - 0.5);
+    return array.sort(()=> Math.random() - 0.3);
   }
 
 }

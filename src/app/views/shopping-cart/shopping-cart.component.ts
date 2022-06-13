@@ -19,6 +19,7 @@ export class ShoppingCartComponent implements OnInit {
     this.carrito = JSON.parse(localStorage.getItem('carrito'));
     this.calcularPrecio();
     this.contarArticulos();
+    window.scroll(0,0);
   }
 
   calcularPrecio(){
@@ -56,8 +57,7 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   eliminarDelCarrito(product:any){
-    console.log(product);
-    this.carrito.splice(product,1);
+    this.carrito.splice(this.carrito.indexOf(product) ,1);
     localStorage.setItem('carrito', JSON.stringify(this.carrito));
     window.location.reload();
   }

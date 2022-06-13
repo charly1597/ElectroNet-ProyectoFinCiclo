@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('user'));
     this.getProducts();
+    window.scroll(0,0);
   }
 
   getProducts(){
@@ -30,7 +31,7 @@ export class HomeComponent implements OnInit {
   }
 
   shuffleArray(array: any){
-    return array.sort(()=> Math.random() - 0.5);
+    return array.sort(()=> Math.random() - 0.3);
   }
 
   goToProduct(id: number){
