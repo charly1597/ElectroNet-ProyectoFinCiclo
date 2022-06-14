@@ -27,7 +27,6 @@ export class FormUserComponent implements OnInit {
     if(this.activatedRoute.snapshot.paramMap.get('id')){
     this.activatedRoute.params.pipe(switchMap (({id}) => this.apiSv.obtenerUsuario(id))
       ).subscribe(async usuario => {
-        console.log(usuario)
         this.user = usuario;
         this.idUser = this.activatedRoute.snapshot.paramMap.get('id');
       });

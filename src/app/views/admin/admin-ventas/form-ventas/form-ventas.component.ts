@@ -30,7 +30,6 @@ export class FormVentasComponent implements OnInit {
   obtenerUsuarios(){
     this.apiSv.obtenerTodosUsuarios().subscribe(users => {
       this.users = users
-      console.log(users)
     })
   }
 
@@ -48,7 +47,6 @@ export class FormVentasComponent implements OnInit {
   buscarProducto(id:any){
      this.apiSv.getProduct(id).subscribe(product => {
       this.precio = product.precio
-      console.log(product)
     })
   }
 

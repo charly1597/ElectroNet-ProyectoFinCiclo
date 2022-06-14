@@ -19,7 +19,6 @@ export class MyShoppingComponent implements OnInit {
 
   obtenerVentas(){
     this.apiSv.obtenerVentasUsuario().subscribe(ventas => {
-      console.log(ventas)
       this.ventas = ventas;
     })
   }

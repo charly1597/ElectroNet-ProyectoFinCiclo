@@ -26,7 +26,6 @@ export class ProductComponent implements OnInit {
 
     this.activatedRoute.params.pipe(switchMap (({id}) => this.apiSv.getProduct(id))
       ).subscribe(async product => {
-        console.log(product)
         this.electrodomestico = product;
       });
       this.obtenerComentarios();
@@ -45,7 +44,6 @@ export class ProductComponent implements OnInit {
     }
     carrito.push(producto);
     localStorage.setItem('carrito', JSON.stringify(carrito));
-    console.log(carrito);
     this.router.navigateByUrl('/carrito').then(() => {
       window.location.reload();
     });
@@ -54,7 +52,6 @@ export class ProductComponent implements OnInit {
   obtenerComentarios(){
     this.apiSv.obtenerComentariosProducto(this.activatedRoute.snapshot.paramMap.get('id')).subscribe(comentarios => {
       this.comentarios = comentarios
-      console.log(comentarios)
     })
   }
 
@@ -77,7 +74,6 @@ export class ProductComponent implements OnInit {
   }
 
   post(){
-    console.log(this.loginForm.value.descripcion);
     const comentario = {
       id_usuario: this.user.id,
       id_elec:this.activatedRoute.snapshot.paramMap.get('id'),

@@ -33,7 +33,6 @@ export class FormElecComponent implements OnInit {
     if(this.activatedRoute.snapshot.paramMap.get('id')){
     this.activatedRoute.params.pipe(switchMap (({id}) => this.apiSv.getProduct(id))
       ).subscribe(async product => {
-        console.log(product)
         this.electrodomestico = product;
         this.idElec = this.activatedRoute.snapshot.paramMap.get('id');
         this.selected = this.electrodomestico.id;
@@ -65,25 +64,6 @@ export class FormElecComponent implements OnInit {
     this.apiSv.obtenerCategorias().subscribe(categorias => {
       this.categorias = categorias
     })
-  }
-
-  showDialog(id: string): void {
-    const dialogo = this.confirmDialog
-      .open(ConfirmDialogComponent, {
-        width: '60%',
-        maxWidth: '400px',
-        data: {
-          id: id,
-          title: "Confirmacion de borrado",
-          mensaje: "¿Desea eliminar el elemento seleccionado?"
-        }
-      })
-      dialogo.afterClosed()
-      .subscribe(result => {
-        if (result) {
-          console.log('hola')
-        }
-      });
   }
 
 }

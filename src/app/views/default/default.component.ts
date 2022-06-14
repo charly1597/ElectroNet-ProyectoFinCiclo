@@ -19,7 +19,6 @@ export class DefaultComponent implements OnInit {
 
   getProducts(){
     this.apiSv.getProducts().subscribe(productos => {
-      console.log(productos);
       this.products = productos;
       this.products = this.shuffleArray(this.products);
       this.products2 = this.products.slice(0,8);

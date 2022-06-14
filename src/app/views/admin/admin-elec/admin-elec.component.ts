@@ -22,7 +22,6 @@ export class AdminElecComponent implements OnInit {
 
   getProducts(){
     this.apiSv.getProducts().subscribe(productos => {
-      console.log(productos);
       this.products = productos;
     })
   }
