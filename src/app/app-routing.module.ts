@@ -4,10 +4,13 @@ import { AdminGuard } from './guards/admin.guard';
 import { AuthGuard } from './guards/auth.guard';
 import { LoggedGuard } from './guards/logged.guard';
 import { AdminCategoryComponent } from './views/admin/admin-category/admin-category.component';
+import { FormCategoryComponent } from './views/admin/admin-category/form-category/form-category.component';
 import { AdminElecComponent } from './views/admin/admin-elec/admin-elec.component';
 import { FormElecComponent } from './views/admin/admin-elec/form-elec/form-elec.component';
 import { AdminUserComponent } from './views/admin/admin-user/admin-user.component';
+import { FormUserComponent } from './views/admin/admin-user/form-user/form-user.component';
 import { AdminVentasComponent } from './views/admin/admin-ventas/admin-ventas.component';
+import { FormVentasComponent } from './views/admin/admin-ventas/form-ventas/form-ventas.component';
 import { AdminComponent } from './views/admin/admin.component';
 import { DefaultComponent } from './views/default/default.component';
 import { HomeComponent } from './views/home/home.component';
@@ -34,6 +37,11 @@ const routes: Routes = [
   {path: 'admin/category', component: AdminCategoryComponent, canActivate: [AuthGuard,AdminGuard]},
   {path: 'admin/electrodomesticos/form/:id', component: FormElecComponent, canActivate: [AuthGuard,AdminGuard]},
   {path: 'admin/electrodomesticos/form', component: FormElecComponent, canActivate: [AuthGuard,AdminGuard]},
+  {path: 'admin/users/form/:id', component: FormUserComponent, canActivate: [AuthGuard,AdminGuard]},
+  {path: 'admin/users/form', component: FormUserComponent, canActivate: [AuthGuard,AdminGuard]},
+  {path: 'admin/ventas/form', component: FormVentasComponent, canActivate: [AuthGuard,AdminGuard]},
+  {path: 'admin/category/form', component: FormCategoryComponent, canActivate: [AuthGuard,AdminGuard]},
+  {path: 'admin/category/form/:id', component: FormCategoryComponent, canActivate: [AuthGuard,AdminGuard]},
 ];
 
 @NgModule({

@@ -1,5 +1,5 @@
 <div class="mb-4">
-  <button mat-raised-button color="primary" class="mb-4" focusable="false">
+  <button routerLink="/admin/ventas/form" mat-raised-button color="primary" class="mb-4" focusable="false">
     Añadir venta
   </button>
 </div>
@@ -35,20 +35,12 @@
   <ng-container matColumnDef="borrar">
     <th mat-header-cell *matHeaderCellDef> Borrar </th>
     <td mat-cell *matCellDef="let element">
-      <button mat-raised-button color="warn" focusable="false">
+      <button (click)="showDialog(element.id)" mat-raised-button color="warn" focusable="false">
         Borrar
       </button>
     </td>
   </ng-container>
 
-  <ng-container matColumnDef="editar">
-    <th mat-header-cell *matHeaderCellDef> Editar </th>
-    <td mat-cell *matCellDef="let element">
-      <button mat-raised-button color="primary" focusable="false">
-        Editar
-      </button>
-    </td>
-  </ng-container>
 
 
 

@@ -17,7 +17,7 @@ export class ProductComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private apiSv : ApiPhpService, private router:Router) {
     this.loginForm = new FormGroup({
-      descripcion: new FormControl('')
+      descripcion: new FormControl('',[Validators.required])
     });
    }
 
@@ -53,7 +53,7 @@ export class ProductComponent implements OnInit {
 
   obtenerComentarios(){
     this.apiSv.obtenerComentariosProducto(this.activatedRoute.snapshot.paramMap.get('id')).subscribe(comentarios => {
-      this.comentarios = comentarios;
+      this.comentarios = comentarios
       console.log(comentarios)
     })
   }
@@ -70,6 +70,10 @@ export class ProductComponent implements OnInit {
       }
     }
     this.comentarios = limpio;
+  }
+
+  volver(){
+    history.back();
   }
 
   post(){

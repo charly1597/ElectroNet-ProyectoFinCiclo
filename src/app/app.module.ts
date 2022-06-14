@@ -29,6 +29,13 @@ import { FormElecComponent } from './views/admin/admin-elec/form-elec/form-elec.
 import {MatInputModule} from '@angular/material/input';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatIconModule} from '@angular/material/icon';
+import { FormUserComponent } from './views/admin/admin-user/form-user/form-user.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ConfirmDialogComponent } from './views/confirm-dialog/confirm-dialog.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { FormVentasComponent } from './views/admin/admin-ventas/form-ventas/form-ventas.component';
+import { FormCategoryComponent } from './views/admin/admin-category/form-category/form-category.component';
 
 
 
@@ -50,6 +57,10 @@ import {MatIconModule} from '@angular/material/icon';
     AdminVentasComponent,
     AdminCategoryComponent,
     FormElecComponent,
+    FormUserComponent,
+    ConfirmDialogComponent,
+    FormVentasComponent,
+    FormCategoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +76,10 @@ import {MatIconModule} from '@angular/material/icon';
     NgxPaginationModule,
     MatInputModule,
     MatBadgeModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

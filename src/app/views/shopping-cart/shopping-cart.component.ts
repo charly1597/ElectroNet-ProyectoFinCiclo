@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ApiPhpService } from 'src/app/services/api-php.service';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -13,7 +15,7 @@ export class ShoppingCartComponent implements OnInit {
   public user:any;
   public articulos:number=0;
 
-  constructor(private apiSV:ApiPhpService, private router:Router) { }
+  constructor(private apiSV:ApiPhpService, private router:Router, private confirmDialog: MatDialog) { }
 
   ngOnInit(): void {
     this.carrito = JSON.parse(localStorage.getItem('carrito'));
@@ -60,6 +62,24 @@ export class ShoppingCartComponent implements OnInit {
     this.carrito.splice(this.carrito.indexOf(product) ,1);
     localStorage.setItem('carrito', JSON.stringify(this.carrito));
     window.location.reload();
+  }
+
+  showDialog(product:any): void {
+    const dialogo = this.confirmDialog
+      .open(ConfirmDialogComponent, {
+        width: '60%',
+        maxWidth: '400px',
+        data: {
+          title: "Confirmacion de borrado",
+          mensaje: "¿Desea eliminar del carrito?"
+        }
+      })
+      dialogo.afterClosed()
+      .subscribe(result => {
+        if (result) {
+          this.eliminarDelCarrito(product)
+        }
+      });
   }
 
 }

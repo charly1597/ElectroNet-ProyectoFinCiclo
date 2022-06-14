@@ -17,7 +17,7 @@
   <mat-card-actions class="text-center pb-8">
     <div class="bg-[#6af6b2] -mx-2 py-4 -mb-6 rounded">
       <button (click)="agregarProducto(electrodomestico)" mat-raised-button color="primary">Añadir al carrito</button>
-      <button routerLink="/home" mat-raised-button color="warn">Volver a inicio</button>
+      <button (click)="volver()" mat-raised-button color="warn">Volver</button>
     </div>
   </mat-card-actions>
 </mat-card>
@@ -33,17 +33,17 @@
 
   </div>
     <div class="pb-4 text-center">
-        <button type="submit" class="bg-[#3a1fe3] w-6/12 md:w-6/12 md:m-auto lg:w-4/12 lg:m-auto text-white py-2 px-2 rounded-2xl mx-auto tracking-wider font-semibold mb-4">
+        <button type="submit" [disabled]="!loginForm.valid " class="bg-[#3a1fe3] w-6/12 md:w-6/12 md:m-auto lg:w-4/12 lg:m-auto text-white py-2 px-2 rounded-2xl mx-auto tracking-wider font-semibold mb-4">
       Insertar Comentario
     </button>
     </div>
   </form>
   <div *ngIf="comentarios.length > 0">
-    <mat-card *ngFor="let comentario of comentarios" class=" w-8/12 mx-auto mb-4">
-      <mat-card-title>{{comentario.nombre}}</mat-card-title>
-      <mat-card-subtitle>{{comentario.email}}</mat-card-subtitle>
+    <mat-card *ngFor="let comentario of comentarios" class="bg-[#c8cbca] w-8/12 mx-auto mb-4">
+      <mat-card-title class="bg-[#6af6b2] text-xs sm:text-lg -mx-4 px-4 py-2">{{comentario.nombre}} <span class="text-xs font-normal float-right"><mat-card-subtitle>{{comentario.email}}</mat-card-subtitle></span></mat-card-title>
+      <mat-card-subtitle>{{comentario.fecha | date: 'medium'}}</mat-card-subtitle>
       <mat-card-content>
-        <p>{{comentario.comentario}}</p>
+        <p class="font-bold">{{comentario.comentario}}</p>
         <p></p>
       </mat-card-content>
     </mat-card>

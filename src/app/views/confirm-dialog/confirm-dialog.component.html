@@ -1,0 +1,19 @@
+<button mat-button (click)="cerrarDialogo()" class="float-right close-icon" [mat-dialog-close]="true">
+  <mat-icon>close</mat-icon>
+</button>
+<br>
+<ng-container class="grid grid-rows-3 gap-2">
+    <div class="grid grid-columns-2 justify-between">
+        <h1 mat-dialog-title>{{title}}</h1>
+    </div>
+    <div>
+    </div>
+    <div mat-dialog-content>
+        <p>{{mensaje}}</p>
+        <p *ngIf="id" class="text-center mt-2">Id: {{id}}</p>
+    </div>
+    <div mat-dialog-actions class="float-right">
+        <button mat-button (click)="cerrarDialogo()" cdkFocusInitial [mat-dialog-close]="true">No</button>
+        <button mat-button (click)="confirmado()" color="warn">Sí</button>
+    </div>
+</ng-container>

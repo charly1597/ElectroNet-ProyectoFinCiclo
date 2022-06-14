@@ -1,4 +1,4 @@
-<div *ngIf="isLogged" [ngClass]="{'bg-ligth': showMenu, 'bg-white': !showMenu}" class="z-50 fixed top-0 left-0 right-0 bg-white h-16 border-b-2">
+<div *ngIf="isLogged" [ngClass]="{'bg-[#6af6b2]': showMenu, 'bg-white': !showMenu}" class="z-50 fixed top-0 left-0 right-0 bg-white h-16 border-b-2">
   <nav [ngClass]="{'bg-azulClaro': showMenu, 'bg-white': !showMenu}" class="border-b border-gray-200 font-barlow no-underline fixed w-[100%] top-0" *ngIf="isLogged">
     <div class="mx-4">
       <div class="flex justify-between h-16">
@@ -54,7 +54,7 @@
     </div>
 
     <!-- Mobile menu, show/hide based on menu state. -->
-    <div [ngClass]="{'hidden': !showMenu, 'block': showMenu}" class="hidden bg-ligth no-underline fixed w-full h-full" #movilMenu id="mobile-menu">
+    <div [ngClass]="{'hidden': !showMenu, 'block': showMenu}" class="hidden bg-[#6af6b2] no-underline fixed w-full h-full" #movilMenu id="mobile-menu">
       <div class="pt-2 pb-3 space-y-1 text-center">
         <!-- Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent " -->
         <div>

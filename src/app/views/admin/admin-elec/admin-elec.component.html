@@ -35,7 +35,7 @@
   <ng-container matColumnDef="borrar">
     <th mat-header-cell *matHeaderCellDef> Borrar </th>
     <td mat-cell *matCellDef="let element">
-      <button mat-raised-button color="warn" focusable="false">
+      <button (click)="showDialog(element.id)" mat-raised-button color="warn" focusable="false">
         Borrar
       </button>
     </td>
