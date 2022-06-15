@@ -55,7 +55,10 @@ export class ShoppingCartComponent implements OnInit {
     }
     this.carrito = [];
     localStorage.setItem('carrito', JSON.stringify(this.carrito));
-    this.router.navigateByUrl('/home');
+    this.router.navigateByUrl('/home').then(() => {
+      window.location.reload();
+    });
+
   }
 
   eliminarDelCarrito(product:any){
