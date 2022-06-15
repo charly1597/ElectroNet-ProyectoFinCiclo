@@ -7,3 +7,6 @@ Este sitio web ha sido desarrollado con el framework de Angular y para la conexi
 
 # Despliegue
 En el margen derecho podrás encontrar la url del sitio desplegado en Vercel
+
+# Documentación 
+La documentación de este proyecto, los archivos de la API y la licencia la encontrarás en la rama main de este repositorio
